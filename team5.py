@@ -1,14 +1,6 @@
-#### The Law Firm Pratt and Roberts
-# Each team's file must define four tokens:
-#     team_name: a string
-#     strategy_name: a string
-#     strategy_description: a string
-#     move: A function that returns 'c' or 'b'
-####
-
-team_name = 'The Law Firm of Pratt and Roberts' # Only 10 chars displayed.
-strategy_name = 'Jaded'
-strategy_description = "We collude until we're screwed."
+team_name = 'Habeeb' # Only 10 chars displayed.
+strategy_name = 'Golden Bolls'
+strategy_description = "We betray, we collude, we repeat."
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -36,11 +28,11 @@ def move(my_history, their_history, my_score, their_score):
    # 
    #  return 'c'
     if len(my_history)==0: # It's the first round; collude.
-        return 'c'    
-    elif 'b' in their_history:
-        return 'b'
+        return 'betray'    
+    elif 'collude' in their_history:
+        return 'betray'
     else:
-        return 'c'
+        return 'collude'
   
         
 
@@ -55,7 +47,7 @@ def test_move(my_history, their_history, my_score, their_score, result):
         return True
     else:
         print("move(" +
-            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+            test", ".join(["'"+my_history+"'", "'"+their_history+"'",
                        str(my_score), str(their_score)])+
             ") returned " + "'" + real_result + "'" +
             " and should have returned '" + result + "'")
@@ -68,7 +60,7 @@ if __name__ == '__main__':
               their_history='', 
               my_score=0,
               their_score=0,
-              result='b'):
+              result='betray'):
          print 'Test passed'
      # Test 2: Continue betraying if they collude despite being betrayed.
     test_move(my_history='bbb',
@@ -81,4 +73,4 @@ if __name__ == '__main__':
               # move('bbb', 'ccc', 0, 0) returns 'b'.
               my_score=0, 
               their_score=0,
-              result='b')             
+              result='collude')             
