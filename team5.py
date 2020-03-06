@@ -28,11 +28,11 @@ def move(my_history, their_history, my_score, their_score):
    # 
    #  return 'c'
     if len(my_history)==0: # It's the first round; collude.
-        return 'betray'    
-    elif 'collude' in their_history:
-        return 'betray'
+        return 'b'    
+    elif 'c' in their_history:
+        return 'b'
     else:
-        return 'collude'
+        return 'c'
   
         
 
@@ -60,7 +60,7 @@ if __name__ == '__main__':
               their_history='', 
               my_score=0,
               their_score=0,
-              result='betray'):
+              result='b'):
          print 'Test passed'
      # Test 2: Continue betraying if they collude despite being betrayed.
     test_move(my_history='bbb',
@@ -73,4 +73,4 @@ if __name__ == '__main__':
               # move('bbb', 'ccc', 0, 0) returns 'b'.
               my_score=0, 
               their_score=0,
-              result='collude')             
+              result='c')             
